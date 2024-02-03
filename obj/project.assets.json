@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projects\\BlukyWebMVC\\BulkyWebMVCProject.csproj",
-      "projectName": "BulkyWebMVCProject",
-      "projectPath": "C:\\Projects\\BlukyWebMVC\\BulkyWebMVCProject.csproj",
+      "projectUniqueName": "C:\\Projects\\BlukyWebMVC\\BulkyWeb.csproj",
+      "projectName": "BulkyWeb",
+      "projectPath": "C:\\Projects\\BlukyWebMVC\\BulkyWeb.csproj",
       "packagesPath": "C:\\Users\\ascny\\.nuget\\packages\\",
       "outputPath": "C:\\Projects\\BlukyWebMVC\\obj\\",
       "projectStyle": "PackageReference",

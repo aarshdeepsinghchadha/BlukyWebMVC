@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AjjjwtETqJBuznEItgeEh5o0V8SPX6FVWwNAHB27QH9unfwqv3BMQEQqFxMCbCRv2U8mBtTI5be1iHhJdqRrXg==",
+  "dgSpecHash": "+/LXXoEJPdMFxSJNQ61DwaSWVU5V9uvhnSny7oxqCiQeNjssKJcjg1qoi7UR7Jsh1XNSVX20gdlAjlyok4hVGA==",
   "success": true,
-  "projectFilePath": "C:\\Projects\\BlukyWebMVC\\BulkyWebMVCProject.csproj",
+  "projectFilePath": "C:\\Projects\\BlukyWebMVC\\BulkyWeb.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
