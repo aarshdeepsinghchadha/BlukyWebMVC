@@ -1,6 +1,7 @@
 ﻿using BulkyBook.DataAccess.Data;
 using BulkyBook.DataAccess.Repository.IRepository;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
 namespace BulkyBook.DataAccess.Repository
 {
@@ -21,9 +22,17 @@ namespace BulkyBook.DataAccess.Repository
             _dbSet.Add(entity);
         }
 
-        public T Get(System.Linq.Expressions.Expression<Func<T, bool>> filter, string? includePRoperties = null)
+        public T Get(System.Linq.Expressions.Expression<Func<T, bool>> filter, string? includePRoperties = null, bool tracked = false)
         {
-            IQueryable<T> query = _dbSet;
+            IQueryable<T> query;
+            if (tracked == true)
+            {
+                query = _dbSet;
+            }
+            else
+            {
+                query = _dbSet.AsNoTracking();
+            }
             query = query.Where(filter);
             if (!string.IsNullOrEmpty(includePRoperties))
             {
@@ -35,9 +44,13 @@ namespace BulkyBook.DataAccess.Repository
             return query.FirstOrDefault();
         }
 
-        public IEnumerable<T> GetAll(string? includePRoperties = null)
+        public IEnumerable<T> GetAll(Expression<Func<T, bool>>? filter, string? includePRoperties = null)
         {
             IQueryable<T> query = _dbSet;
+            if (filter != null)
+            {
+                query = query.Where(filter);
+            }
             if(!string.IsNullOrEmpty(includePRoperties))
             {
                 foreach(var includeProp in includePRoperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries)) 
