@@ -22,7 +22,7 @@ namespace BulkyBook.DataAccess.Repository
             _dbSet.Add(entity);
         }
 
-        public T Get(System.Linq.Expressions.Expression<Func<T, bool>> filter, string? includePRoperties = null, bool tracked = false)
+        public T Get(System.Linq.Expressions.Expression<Func<T, bool>> filter, string? includeProperties = null, bool tracked = false)
         {
             IQueryable<T> query;
             if (tracked == true)
@@ -34,9 +34,9 @@ namespace BulkyBook.DataAccess.Repository
                 query = _dbSet.AsNoTracking();
             }
             query = query.Where(filter);
-            if (!string.IsNullOrEmpty(includePRoperties))
+            if (!string.IsNullOrEmpty(includeProperties))
             {
-                foreach (var includeProp in includePRoperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+                foreach (var includeProp in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
                 {
                     query = query.Include(includeProp);
                 }
@@ -44,16 +44,16 @@ namespace BulkyBook.DataAccess.Repository
             return query.FirstOrDefault();
         }
 
-        public IEnumerable<T> GetAll(Expression<Func<T, bool>>? filter, string? includePRoperties = null)
+        public IEnumerable<T> GetAll(Expression<Func<T, bool>>? filter, string? includeProperties = null)
         {
             IQueryable<T> query = _dbSet;
             if (filter != null)
             {
                 query = query.Where(filter);
             }
-            if(!string.IsNullOrEmpty(includePRoperties))
+            if(!string.IsNullOrEmpty(includeProperties))
             {
-                foreach(var includeProp in includePRoperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries)) 
+                foreach(var includeProp in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries)) 
                 {
                     query = query.Include(includeProp);
                 }
