@@ -78,7 +78,7 @@ namespace BulkyBook.DataAccess.DbInitializer
                     City = "Chicago"
                 };
 
-                var result = _userManager.CreateAsync(adminUser, "Pa$$w0rd*").GetAwaiter().GetResult();
+                var result = _userManager.CreateAsync(adminUser, "Pa$$w0rd").GetAwaiter().GetResult();
                 if (result.Succeeded)
                 {
                     _userManager.AddToRoleAsync(adminUser, SD.Role_Admin).GetAwaiter().GetResult();
