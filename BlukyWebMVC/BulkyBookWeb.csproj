@@ -38,11 +38,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\images\product\" />
+    <None Include="Areas\Admin\Views\User\Index.cshtml" />
+    <None Include="Areas\Admin\Views\User\RoleManagment.cshtml" />
+    <None Include="Views\Shared\Components\ShoppingCart\Default.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Views\Shared\Components\ShoppingCart\Default.cshtml" />
+    <Folder Include="wwwroot\images\product\" />
   </ItemGroup>
 
 	
